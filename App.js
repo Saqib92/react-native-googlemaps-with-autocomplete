@@ -13,7 +13,7 @@ import ForgotpasswordPage from "./src/pages/ForgotpasswordPage";
 import SummaryPage from "./src/pages/SummaryPage";
 import ReportPage from "./src/pages/ReportPage";
 import PremiumaccountPage from "./src/pages/PremiumaccoutnPage";
-import FreeaccountPage from "./src/pages/FreeaccoutnPage";
+import FreeaccountPage from "./src/pages/FreeaccountPage";
 
 
 import {
@@ -26,13 +26,13 @@ import {
 
 const AppNavigator = createStackNavigator({
   Login: {screen: LoginPage},
-  Signup:{screen: SignupPage},
+  Signup: {screen: SignupPage},
   SignupForm: {screen: SignupformPage},
-  ForgotPass:{screen: ForgotpasswordPage},
-  Summary:{screen: SummaryPage},
-  Report:{screen: ReportPage},
-  Premiumaccount:{screen: PremiumaccountPage},
-  Freeaccount:{screen: FreeaccountPage}
+  ForgotPass: {screen: ForgotpasswordPage},
+  Summary: {screen: SummaryPage},
+  Report: {screen: ReportPage},
+  Premiumaccount: {screen: PremiumaccountPage},
+  Free: {screen: FreeaccountPage}
 });
 
 export default createAppContainer(AppNavigator);

@@ -27,7 +27,7 @@ export default class FreeaccountPage extends Component{
       return (
         <View style={styles.container}>
           <View style={styles.headerView}>
-            <Text style={styles.heading}>Premium Account</Text>
+            <Text style={styles.heading}>Free Account</Text>
           </View>
         </View>
       );
