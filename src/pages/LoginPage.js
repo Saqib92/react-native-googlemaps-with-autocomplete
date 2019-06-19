@@ -21,6 +21,7 @@ import {
 import Icon from 'react-native-ionicons';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import Toast from 'react-native-simple-toast';
 
 
 export default class LoginPage extends Component{
@@ -30,7 +31,8 @@ export default class LoginPage extends Component{
   constructor(props){
     super();
     this.state = {
-      
+      email: '',
+      password: ''
     }
   }
   componentDidMount(){
@@ -38,7 +40,26 @@ export default class LoginPage extends Component{
     console.log(s);    
   }
 
+  validateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
+      return true
+    }
+      return false
+  }
+
   login=()=>{
+    console.log(this.state.email, this.state.password)
+
+    if(!this.validateEmail(this.state.email)){
+      this.showToast('Please Enter Correct Email');
+      return false;
+    }
+
+    if(this.state.password == undefined || this.state.password == ''){
+      this.showToast('Please Enter Password');
+      return false;
+    }
+    
     this.props.navigation.push('Freeaccount')
   }
 
@@ -48,6 +69,10 @@ export default class LoginPage extends Component{
 
   toSignup=()=>{
     this.props.navigation.push('Signup')
+  }
+
+  showToast(m){
+    Toast.show(m, Toast.LONG);
   }
 
     render() {
@@ -66,7 +91,11 @@ export default class LoginPage extends Component{
                       <Icon ios="ios-mail" android="md-mail" style={styles.inputIcon}/>
                       EMAIL ADDRESS
                     </Text>
-                    <TextInput style={styles.input}/>
+                    <TextInput
+                     style={styles.input}
+                     defaultValue={this.state.email}
+                     onChangeText={ text=>this.setState({email: text})}
+                    />
                   </View>
                   
                   <View style={styles.inputs}>
@@ -74,14 +103,19 @@ export default class LoginPage extends Component{
                       <Icon ios="ios-key" android="md-key" style={styles.inputIcon}/>
                       PASSWORD
                     </Text>
-                    <TextInput style={styles.input} secureTextEntry={true}/>
+                    <TextInput
+                     style={styles.input}
+                     secureTextEntry={true}
+                     defaultValue={this.state.password}
+                     onChangeText={ text=>this.setState({password: text})}
+                     />
                   </View>
                   <View style={styles.forgetView}>
                     <Text style={styles.forgetText} onPress={this.forgetPassword}>Forget Password? Click Here</Text>
                   </View>
                   <View>
                     <TouchableOpacity style={styles.loginBtn} onPress={this.login}>
-                      <Text style={styles.loginText} >LOGIN</Text>
+                      <Text style={styles.loginText} onPress={this.login}>LOGIN</Text>
                     </TouchableOpacity>
                   </View>
 
