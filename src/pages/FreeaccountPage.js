@@ -55,9 +55,9 @@ export default class FreeaccountPage extends Component{
           //  backgroundColor: '#8548BD'
         },
         headerRight: (
-          <View style={{marginRight: 20}}>
-            <Icon name="settings" style={{marginRight: -10, color: '#fff'}}/>
-            <Text style={{ color: '#fff',}}>Setings</Text>            
+          <View style={{marginRight: 10}}>
+            <Icon name="settings" style={{alignSelf:'flex-end', color: '#fff', marginRight: moderateScale(10)}}/>
+            <Text style={{ color: '#fff',}}>Settings</Text>            
         </View>
         )
     };
