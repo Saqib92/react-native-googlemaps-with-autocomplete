@@ -77,7 +77,7 @@ toReport=()=>{
 
             <TouchableOpacity style={styles.verifyBtn}>
               <Icon name="checkmark-circle" style={{fontSize: moderateScale(10), marginRight: 5, color: '#4396F2', padding: 5}}/>
-              <Text style={{ color: '#4396F2'}}>Verify</Text>
+              <Text style={{ color: '#4396F2', marginRight: moderateScale(-50)}}>Verify</Text>
             </TouchableOpacity>
           </View>
 
