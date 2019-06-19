@@ -30,12 +30,24 @@ export default class LoginPage extends Component{
   constructor(props){
     super();
     this.state = {
-      win: ''
+      
     }
   }
   componentDidMount(){
     let s = Dimensions.get('window');
     console.log(s);    
+  }
+
+  login=()=>{
+    this.props.navigation.push('Freeaccount')
+  }
+
+  forgetPassword=()=>{
+    this.props.navigation.push('ForgotPass')
+  }
+
+  toSignup=()=>{
+    this.props.navigation.push('Signup')
   }
 
     render() {
@@ -48,7 +60,7 @@ export default class LoginPage extends Component{
                 <Text style={styles.heading}>LOGIN</Text>
               </View>
 
-              <View style={{width: '90%',marginTop: '33%', paddingLeft: moderateScale(30)}}>
+              <View style={styles.mainView}>
                   <View style={styles.inputs}>
                     <Text style={styles.inputLabel}>
                       <Icon ios="ios-mail" android="md-mail" style={styles.inputIcon}/>
@@ -65,12 +77,17 @@ export default class LoginPage extends Component{
                     <TextInput style={styles.input} secureTextEntry={true}/>
                   </View>
                   <View style={styles.forgetView}>
-                    <Text style={styles.forgetText}>Forget Password? Click Here</Text>
+                    <Text style={styles.forgetText} onPress={this.forgetPassword}>Forget Password? Click Here</Text>
+                  </View>
+                  <View>
+                    <TouchableOpacity style={styles.loginBtn} onPress={this.login}>
+                      <Text style={styles.loginText} >LOGIN</Text>
+                    </TouchableOpacity>
                   </View>
 
-                  <TouchableOpacity style={styles.loginBtn}>
-                    <Text style={styles.loginText} >LOGIN</Text>
-                  </TouchableOpacity>
+                  <View style={styles.signupView}>
+                    <Text style={{color:'#fff', alignItems:'center'}} onPress={this.toSignup}>Dont have an Account? Sign Up</Text>
+                  </View>
               </View>
             </KeyboardAwareScrollView>
           </ImageBackground>
@@ -78,7 +95,8 @@ export default class LoginPage extends Component{
       );
     }
   }
-  
+  const wd = Dimensions.get('window').height;
+
   const styles = StyleSheet.create({
     container: {
       flex: 1
@@ -87,7 +105,12 @@ export default class LoginPage extends Component{
       flex: 1,
       resizeMode: 'cover',
       width: '100%',
-      height: '100%'
+      height: wd      
+    },
+    mainView:{
+      width: '90%',
+      marginTop: '33%',
+      paddingLeft: moderateScale(30)
     },
     headerView:{
       marginTop: moderateScale(31),
@@ -96,7 +119,7 @@ export default class LoginPage extends Component{
     heading:{
       fontSize: moderateScale(21),
       fontWeight: 'bold',
-      color: '#FFFFFF'     
+      color: '#FFFFFF'      
     },
     inputs:{
       width: '100%',
@@ -125,12 +148,12 @@ export default class LoginPage extends Component{
       height: moderateScale(36),
       backgroundColor: 'transparent',
       borderColor: '#fff',
-      borderWidth: 1,
+      borderWidth: moderateScale(2),
       borderRadius: moderateScale(50),
-      marginTop: moderateScale(20),
+      marginTop: moderateScale(50),
       alignItems: "center",
       justifyContent: "center",
-      elevation: 2
+      elevation: moderateScale(2)
     },
     loginText:{
       color:'#fff',
@@ -144,6 +167,10 @@ export default class LoginPage extends Component{
     forgetText:{
       color: '#fff',
       fontSize: moderateScale(12),
+    },
+    signupView:{
+      alignItems: 'center',
+      marginTop: moderateScale(30)
     }    
   });
   

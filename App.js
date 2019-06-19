@@ -32,7 +32,7 @@ const AppNavigator = createStackNavigator({
   Summary: {screen: SummaryPage},
   Report: {screen: ReportPage},
   Premiumaccount: {screen: PremiumaccountPage},
-  Free: {screen: FreeaccountPage}
+  Freeaccount: {screen: FreeaccountPage}
 });
 
 export default createAppContainer(AppNavigator);
