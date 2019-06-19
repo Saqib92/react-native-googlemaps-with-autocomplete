@@ -42,10 +42,17 @@ export default class FreeaccountPage extends Component{
             color: '#fff',
             alignSelf:'center',
         },
+        headerBackground: (
+          <LinearGradient
+            colors={['#8548BD', '#5161CC', '#1D7ADB']}
+            style={{ flex: 1 }}
+            
+          />
+        ),
         headerStyle: {
             paddingHorizontal: 8,
             height: 100,
-            backgroundColor: '#8548BD'
+          //  backgroundColor: '#8548BD'
         },
         headerRight: (
           <View style={{marginRight: 20}}>
@@ -55,6 +62,10 @@ export default class FreeaccountPage extends Component{
         )
     };
 };
+
+toReport=()=>{
+  this.props.navigation.push('Report')
+}
 
     render() {
       return (
@@ -77,28 +88,30 @@ export default class FreeaccountPage extends Component{
             </LinearGradient>
           </View>
 
-          <View style={{flexDirection:'row', marginBottom: moderateScale(20),  width: '90%', backgroundColor: '#69DC75', height: moderateScale(50), borderRadius: moderateScale(5)}}>
-              <Icon name="person"/>
-              <Text>Let's Call</Text>
-              <Icon name="call" style={{alignSelf: 'flex-end'}}/>
-          </View>
+          <TouchableOpacity style={styles.letCall}>
+              
+              <Icon name="phone-portrait" style={{color:'#fff', margin: 10, fontSize: 18 }}/>              
+              <Text style={{color: 'white', fontSize: 14}}>Let's Call</Text>
+              <Icon name="call" style={{marginLeft: '65%', color: '#fff', fontSize: 18, backgroundColor: '#5FC66A', borderRadius: 100, padding: 10}}/>
 
-          <View style={{flexDirection:'row', marginBottom: moderateScale(20), width: '90%', backgroundColor: '#69C8DC', height: moderateScale(50), borderRadius: moderateScale(5)}}>
-              <Icon name="person"/>
-              <Text>Let's Call</Text>
-              <Icon name="call" style={{alignSelf: 'flex-end'}}/>
-          </View>
+          </TouchableOpacity>
 
-          <View style={{flexDirection:'row', marginBottom: moderateScale(20), width: '90%', backgroundColor: '#DC69AA', height: moderateScale(50), borderRadius: moderateScale(5)}}>
-              <Icon name="person"/>
-              <Text>Let's Call</Text>
-              <Icon name="call" style={{alignSelf: 'flex-end'}}/>
-          </View>
+          <TouchableOpacity style={styles.vidCall}>
+          <Icon name="contact" style={{color:'#fff', margin: 10, fontSize: 18 }}/>              
+              <Text style={{color: 'white', fontSize: 14}}>Let's make Video Call</Text>
+              <Icon name="videocam" style={{marginLeft: '43%', color: '#fff', fontSize: 18, backgroundColor: '#5DB3C4', borderRadius: 100, padding: 10}}/>
+          </TouchableOpacity>
 
-          <View style={{flexDirection:'row', marginBottom: moderateScale(20), width: '90%', backgroundColor: '#F03820', height: moderateScale(50), borderRadius: moderateScale(5)}}>
-              <Text>Report a Problem</Text>
-              <Icon name="call" style={{alignSelf: 'flex-end'}}/>
-          </View>
+          <TouchableOpacity style={styles.veriPerson}>
+              <Icon name="phone-portrait" style={{color:'#fff', margin: 10, fontSize: 18 }}/>              
+              <Text style={{color: 'white', fontSize: 14}}>Talk to a Verified Person</Text>
+              <Icon name="call" style={{marginLeft: '40%', color: '#fff', fontSize: 18, backgroundColor: '#C56399', borderRadius: 100, padding: 10}}/>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.rept} onPress={this.toReport}>
+              <Text style={{color: 'white', fontSize: 14, marginLeft: 25}}>Report a Problem</Text>
+              <Icon name="flag" style={{marginLeft: '50%', color: '#fff', fontSize: 18, backgroundColor: '#D73621', borderRadius: 100, padding: 10}}/>
+          </TouchableOpacity>
         </View>
       );
     }
@@ -147,6 +160,42 @@ export default class FreeaccountPage extends Component{
       width: moderateScale(60),
       alignSelf: 'flex-end',
       flexDirection: 'row'
-    }
+    },
+    letCall:{
+      flexDirection:'row',
+      marginBottom: moderateScale(20),
+      width: '90%',
+      backgroundColor: '#69DC75',
+      height: moderateScale(50),
+      borderRadius: moderateScale(5),
+      alignItems: 'center'
+      },
+      vidCall:{
+        flexDirection:'row',
+        marginBottom: moderateScale(20),
+        width: '90%',
+        backgroundColor: '#69C8DC',
+        height: moderateScale(50),
+        borderRadius: moderateScale(5),
+        alignItems: 'center'
+      },
+      veriPerson:{
+        flexDirection:'row',
+        marginBottom: moderateScale(20),
+        width: '90%',
+        backgroundColor: '#DC69AA',
+        height: moderateScale(50),
+        borderRadius: moderateScale(5),
+        alignItems: 'center'
+      },
+      rept:{
+        flexDirection:'row',
+        marginBottom: moderateScale(30),
+        width: '90%',
+        backgroundColor: '#F03820',
+        height: moderateScale(50),
+        borderRadius: moderateScale(5),
+        alignItems: 'center'
+      }
   });
   
