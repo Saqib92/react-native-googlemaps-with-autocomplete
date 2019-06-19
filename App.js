@@ -22,7 +22,7 @@ import {
   createDrawerNavigator,
   createAppContainer
 } from "react-navigation";
-
+import { fromLeft, zoomIn } from 'react-navigation-transitions';
 
 const AppNavigator = createStackNavigator({
   Login: {screen: LoginPage},
@@ -33,6 +33,11 @@ const AppNavigator = createStackNavigator({
   Report: {screen: ReportPage},
   Premiumaccount: {screen: PremiumaccountPage},
   Freeaccount: {screen: FreeaccountPage}
-});
+},
+{
+  initialRouteName: 'Login',
+  transitionConfig: () => zoomIn(750),
+}
+);
 
 export default createAppContainer(AppNavigator);

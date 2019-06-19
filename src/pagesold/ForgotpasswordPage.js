@@ -22,44 +22,19 @@ import Icon from 'react-native-ionicons';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-
-export default class LoginPage extends Component{
+export default class ForgotpasswordPage extends Component{
   static navigationOptions = { // remove header on this page
       header: null
   }
-  constructor(props){
-    super();
-    this.state = {
-      
-    }
-  }
-  componentDidMount(){
-    let s = Dimensions.get('window');
-    console.log(s);    
-  }
-
-  login=()=>{
-    this.props.navigation.push('Freeaccount')
-  }
-
-  forgetPassword=()=>{
-    this.props.navigation.push('ForgotPass')
-  }
-
-  toSignup=()=>{
-    this.props.navigation.push('Signup')
-  }
 
     render() {
-      
       return (
         <View style={ styles.container }>
           <ImageBackground source={require('../assets/bg.png')} style={styles.bgImage}>
             <KeyboardAwareScrollView keyboardShouldPersistTaps="handled">
               <View style={styles.headerView}>
-                <Text style={styles.heading}>LOGIN</Text>
+                <Text style={styles.heading}>FORGOT PASSWORD</Text>
               </View>
-
               <View style={styles.mainView}>
                   <View style={styles.inputs}>
                     <Text style={styles.inputLabel}>
@@ -68,25 +43,10 @@ export default class LoginPage extends Component{
                     </Text>
                     <TextInput style={styles.input}/>
                   </View>
-                  
-                  <View style={styles.inputs}>
-                    <Text  style={styles.inputLabel}>
-                      <Icon ios="ios-key" android="md-key" style={styles.inputIcon}/>
-                      PASSWORD
-                    </Text>
-                    <TextInput style={styles.input} secureTextEntry={true}/>
-                  </View>
-                  <View style={styles.forgetView}>
-                    <Text style={styles.forgetText} onPress={this.forgetPassword}>Forget Password? Click Here</Text>
-                  </View>
                   <View>
-                    <TouchableOpacity style={styles.loginBtn} onPress={this.login}>
-                      <Text style={styles.loginText} >LOGIN</Text>
+                    <TouchableOpacity style={styles.loginBtn}>
+                      <Text style={styles.loginText} >SUBMIT</Text>
                     </TouchableOpacity>
-                  </View>
-
-                  <View style={styles.signupView}>
-                    <Text style={{color:'#fff', alignItems:'center'}} onPress={this.toSignup}>Dont have an Account? Sign Up</Text>
                   </View>
               </View>
             </KeyboardAwareScrollView>
@@ -96,7 +56,6 @@ export default class LoginPage extends Component{
     }
   }
   const wd = Dimensions.get('window').height;
-
   const styles = StyleSheet.create({
     container: {
       flex: 1
@@ -140,8 +99,7 @@ export default class LoginPage extends Component{
       height: moderateScale(36),
       marginBottom: moderateScale(16),
       backgroundColor: '#fff',
-      borderRadius: moderateScale(50),
-     paddingLeft: moderateScale(15)
+      borderRadius: moderateScale(50)
     },
     loginBtn:{
       color: '#fff',
@@ -160,18 +118,6 @@ export default class LoginPage extends Component{
       color:'#fff',
       fontSize: moderateScale(10),
       fontWeight: 'bold'
-    },
-    forgetView:{
-      alignItems: 'flex-end',
-      marginTop: moderateScale(-10)
-    },
-    forgetText:{
-      color: '#fff',
-      fontSize: moderateScale(12),
-    },
-    signupView:{
-      alignItems: 'center',
-      marginTop: moderateScale(30)
-    }    
+    }
   });
   

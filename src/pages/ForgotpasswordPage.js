@@ -87,7 +87,8 @@ export default class ForgotpasswordPage extends Component{
     inputIcon:{
       color: '#fff',
       marginRight: moderateScale(16),
-      fontSize: moderateScale(10)
+      fontSize: moderateScale(10),
+
     },
     inputLabel:{
       color: '#fff',
@@ -99,7 +100,8 @@ export default class ForgotpasswordPage extends Component{
       height: moderateScale(36),
       marginBottom: moderateScale(16),
       backgroundColor: '#fff',
-      borderRadius: moderateScale(50)
+      borderRadius: moderateScale(50),
+      paddingLeft: moderateScale(15)
     },
     loginBtn:{
       color: '#fff',
