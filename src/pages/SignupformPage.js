@@ -17,7 +17,8 @@ import {
   TextInput,
   ImageBackground,
   Dimensions,
-  Image
+  Image,
+  CheckBox
 } from 'react-native';
 import Icon from 'react-native-ionicons';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
@@ -26,6 +27,17 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 export default class SignupformPage extends Component{
   static navigationOptions = { // remove header on this page
       header: null
+  }
+
+  constructor(props){
+    super();
+    this.state={
+      checked: false
+    }
+  }
+
+  toLogin=()=>{
+
   }
 
     render() {
@@ -77,6 +89,13 @@ export default class SignupformPage extends Component{
                     </Text>
                     <TextInput style={styles.input}/>
                   </View>
+
+                  <View style={{flowDirection: 'row', color: '#fff'}}>
+                  <CheckBox style={{color: '#fff'}}
+                  value={this.state.checked}
+                  onValueChange={() => this.setState({ checked: !this.state.checked })}
+                  /><Text style={{color: '#fff'}}>By clicking the Sign Up button, you agree the Terms of conditions and Privacy Policy</Text>
+                  </View>
                   
                   <View>
                     <TouchableOpacity style={styles.loginBtn} onPress={this.login}>
@@ -85,7 +104,7 @@ export default class SignupformPage extends Component{
                   </View>
 
                   <View style={styles.signupView}>
-                    <Text style={{color:'#fff', alignItems:'center'}} onPress={this.toSignup}>Dont have an Account? Sign In</Text>
+                    <Text style={{color:'#fff', alignItems:'center'}} onPress={this.toLogin}>Already have an Account? Sign In</Text>
                   </View>
               </View>
             </KeyboardAwareScrollView>
